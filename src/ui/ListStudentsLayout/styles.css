@@ -1,0 +1,75 @@
+.studentsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.studentsList__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.studentsList__blockControl {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.studentsList__blockControl-search {
+  max-width: 980px;
+  width: 100%;
+
+  flex-shrink: 0;
+
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.studentsList__blockControl-search > input {
+  padding: 14px;
+  width: 100%;
+}
+
+.studentsList__blockControl-search::before {
+  content: "";
+  display: inline-block;
+
+  background-image: url("../../assets/search.svg");
+  background-size: cover;
+  width: 19px;
+  height: 19px;
+}
+
+.studentsList____blockControl-sort {
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+  width: 100%;
+
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px;
+  padding-left: 30px;
+  padding-right: 17px;
+
+  font-weight: 500;
+  font-size: 12px;
+}
+.studentsList____blockControl-sort::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../assets/sort.svg");
+  background-size: cover;
+  width: 19px;
+  height: 17px;
+}

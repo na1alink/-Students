@@ -1,0 +1,24 @@
+.header {
+  padding: 20px 0;
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+  background: var(--white);
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.header__logo-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.header__title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 44px;
+}
+
+.header__title a {
+  color: #49c2e8;
+}

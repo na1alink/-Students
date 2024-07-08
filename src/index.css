@@ -1,0 +1,177 @@
+:root {
+  --font-family: "Geometria", sans-serif;
+  --second-family: "SF Pro Text", sans-serif;
+
+  --white: #ffffff;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+@font-face {
+  font-family: "Geometria";
+  src: local("Geometria-Regular"),
+    url("./assets/fonts/Geometria-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Geometria-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geometria";
+  src: local("Geometria-Medium"),
+    url("./assets/fonts/Geometria-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Geometria-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geometria";
+  src: local("Geometria-Bold"),
+    url("./assets/fonts/Geometria-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Geometria-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: local("SF Pro Text Regular"),
+    url("./assets/fonts/SF-Pro-Text-Regular.woff2") format("woff2"),
+    url("./assets/fonts/SF-Pro-Text-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: auto;
+
+  background-color: var(--white);
+  font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1260px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.main-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50.32px;
+}
