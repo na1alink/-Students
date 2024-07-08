@@ -2,7 +2,8 @@
 
 
 
-  ## Single Page Application для работы со списком студентов: добавлением, удалением, получением. Проект написан на React + Vite + TypeScript</h1>
+  ## Single Page Application для работы со списком студентов: добавлением, удалением, получением. 
+  ## Проект написан на React + Vite + TypeScript
 
 
 
