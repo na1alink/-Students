@@ -26,7 +26,7 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
         onClick={onSortButtonClick}
         className="studentsList__blockControl-sort"
       >
-        Имя Я-А
+        Имя А-Я
       </button>
     </div>
   );

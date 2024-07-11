@@ -5,81 +5,18 @@ import SortModal from "../SortModal";
 import { ListStudentsHeader } from "../ListStudentsHeader";
 
 import "./styles.css";
-
-interface StudentData {
-  id: number;
-  email: string;
-  name: string;
-  sex: string;
-  specialty: string;
-  group: string;
-  color: string;
-  rating: number;
-  birthday: string;
-  avatar: string;
-}
+import useStudents from "../../hooks/useStudentsList";
 
 const ListStudentsLayout: React.FC = () => {
-  const [students, setStudents] = useState<StudentData[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const {
+    students,
+    isLoaded,
+    searchTerm,
+    handleSearch,
+    handleSort,
+    handleDelete,
+  } = useStudents(); // Use the custom hook
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sortCriteria, setSortCriteria] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch("https://front-assignment-api.2tapp.cc/api/persons")
-      .then((response) => response.json())
-      .then((data) => {
-        setStudents(data.students);
-        setIsLoaded(true);
-      });
-  }, []);
-
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSort = (criteria: string) => {
-    setSortCriteria(criteria);
-    setIsModalOpen(false);
-  };
-
-  const sortedStudents = React.useMemo(() => {
-    const sorted = [...students];
-    if (sortCriteria) {
-      switch (sortCriteria) {
-        case "name-asc":
-          sorted.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-        case "name-desc":
-          sorted.sort((a, b) => b.name.localeCompare(a.name));
-          break;
-        case "age-asc":
-          sorted.sort(
-            (a, b) =>
-              new Date(a.birthday).getTime() - new Date(b.birthday).getTime()
-          );
-          break;
-        case "age-desc":
-          sorted.sort(
-            (a, b) =>
-              new Date(b.birthday).getTime() - new Date(a.birthday).getTime()
-          );
-          break;
-        case "rating-asc":
-          sorted.sort((a, b) => a.rating - b.rating);
-          break;
-        case "rating-desc":
-          sorted.sort((a, b) => b.rating - a.rating);
-          break;
-      }
-    }
-    return sorted;
-  }, [students, sortCriteria]);
-
-  const filteredStudents = sortedStudents.filter((student) =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <div className="studentsList">
@@ -98,9 +35,17 @@ const ListStudentsLayout: React.FC = () => {
         <p>Загрузка...</p>
       ) : (
         <div className="studentsList__content">
-          {filteredStudents.map((student) => (
-            <Student key={student.id} {...student} />
-          ))}
+          {students.length === 0 ? (
+            <p>Нет совпадений</p>
+          ) : (
+            students.map((student) => (
+              <Student
+                key={student.id}
+                {...student}
+                deleteFunction={handleDelete}
+              />
+            ))
+          )}
         </div>
       )}
     </div>

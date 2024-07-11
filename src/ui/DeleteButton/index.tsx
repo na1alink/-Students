@@ -1,53 +1,17 @@
 import React from "react";
 
-import photo from "../../../../assets/deleteButton.svg";
-
-import PropTypes from "prop-types";
-
-export default class DeleteButton extends React.Component {
-  static propTypes = {
-    deleteFunction: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
-  };
-
-  constructor(props) {
-    super(props);
-    this.deleteStudent = this.deleteStudent.bind(this);
-  }
-
-  deleteStudent() {
-    // eslint-disable-next-line no-useless-escape
-    let url =
-      window.location.protocol +
-      "//" +
-      window.location.hostname +
-      ":" +
-      window.location.port +
-      "/students/delete/" +
-      this.props.id;
-    console.log(url);
-    fetch(url, {
-      method: "delete",
-    })
-      .then((res) => {
-        if (!res.ok) {
-          console.log(res.status);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    this.props.deleteFunction(this.props.id);
-  }
-
-  render() {
-    return (
-      <button
-        className={"StudentItem StudentDelete"}
-        onClick={this.deleteStudent}
-      >
-        <img src={photo} alt={"delete"} />
-      </button>
-    );
-  }
+import photo from "../../assets/deleteButton.svg";
+interface DeleteButtonProps {
+  id: number;
+  deleteFunction: (id: number) => void;
 }
+
+const DeleteButton: React.FC<DeleteButtonProps> = ({ id, deleteFunction }) => {
+  return (
+    <button className="delete-button" onClick={() => deleteFunction(id)}>
+      <img src={photo} alt={"delete"} />
+    </button>
+  );
+};
+
+export default DeleteButton;

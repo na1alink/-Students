@@ -5,8 +5,8 @@
   margin-bottom: 30px;
 }
 .studentsList__blockControl-search {
-  max-width: 980px;
-  width: 100%;
+  /* max-width: 980px; */
+  width: 85%;
 
   flex-shrink: 0;
 
@@ -16,17 +16,21 @@
   display: flex;
   align-items: center;
   padding-left: 20px;
+  position: relative;
 }
 
 .studentsList__blockControl-search > input {
   padding: 14px;
+  padding-left: 34px;
   width: 100%;
 }
 
 .studentsList__blockControl-search::before {
   content: "";
   display: inline-block;
-
+  position: absolute;
+  left: 20px;
+  top: 15px;
   background-image: url("../../assets/search.svg");
   background-size: cover;
   width: 19px;
