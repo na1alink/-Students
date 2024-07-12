@@ -4,10 +4,25 @@ import "./styles.css";
 interface SortModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSort: (criteria: string) => void;
+  onSort: (criteria: string, buttonText: string) => void;
+  currentSort: string;
 }
 
-const SortModal: React.FC<SortModalProps> = ({ isOpen, onClose, onSort }) => {
+const sortOptions = [
+  { criteria: "name-asc", text: "Имя А-Я" },
+  { criteria: "name-desc", text: "Имя Я-А" },
+  { criteria: "age-desc", text: "Сначала моложе" },
+  { criteria: "age-asc", text: "Сначала старше" },
+  { criteria: "rating-desc", text: "Высокий рейтинг" },
+  { criteria: "rating-asc", text: "Низкий рейтинг" },
+];
+
+const SortModal: React.FC<SortModalProps> = ({
+  isOpen,
+  onClose,
+  onSort,
+  currentSort,
+}) => {
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
     if ((event.target as Element).classList.contains("modal")) {
       onClose();
@@ -19,24 +34,17 @@ const SortModal: React.FC<SortModalProps> = ({ isOpen, onClose, onSort }) => {
   return (
     <div className="modal" onClick={handleClickOutside}>
       <div className="modal-content">
-        <button onClick={() => onSort("name-asc")} className="modal-btn">
-          Имя А-Я
-        </button>
-        <button onClick={() => onSort("name-desc")} className="modal-btn">
-          Имя Я-А
-        </button>
-        <button onClick={() => onSort("age-desc")} className="modal-btn">
-          Сначала моложе
-        </button>
-        <button onClick={() => onSort("age-asc")} className="modal-btn">
-          Сначала старше
-        </button>
-        <button onClick={() => onSort("rating-desc")} className="modal-btn">
-          Высокий рейтинг
-        </button>
-        <button onClick={() => onSort("rating-asc")} className="modal-btn">
-          Низкий рейтинг
-        </button>
+        {sortOptions.map((option) => (
+          <button
+            key={option.criteria}
+            onClick={() => onSort(option.criteria, option.text)}
+            className={`modal-btn ${
+              currentSort === option.criteria ? "selected" : ""
+            }`}
+          >
+            {option.text}
+          </button>
+        ))}
       </div>
     </div>
   );

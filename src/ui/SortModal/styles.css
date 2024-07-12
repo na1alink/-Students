@@ -4,8 +4,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(1px);
   z-index: 5;
 
   display: flex;
@@ -21,20 +21,61 @@
 .modal-content {
   display: flex;
   flex-direction: column;
+  gap: 5px;
   align-items: flex-start;
 
-  width: 180px;
+  max-width: 180px;
+  width: 100%;
   height: auto;
   padding: 5px;
-  background-color: #fff;
-  box-shadow: 5px 5px 5px 5px rgba(225, 225, 225, 0.6);
+  border-radius: 6px;
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+  background: #fff;
 }
 
 .modal-btn {
   font-size: 12px;
   font-weight: 500;
   line-height: 15.1px;
-  padding: 15px 20px;
+  padding: 15px;
   width: 100%;
   text-align: left;
+  border-radius: 5px;
+  position: relative;
+  background: #fff;
+
+  transition: background 0.3s ease, background-image 0.3s ease;
+}
+
+.modal-btn.selected {
+  background: rgba(73, 194, 232, 0.11);
+  position: relative;
+}
+
+.modal-btn.selected::after {
+  content: "";
+  position: absolute;
+  right: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 7px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.49373 0.758435C8.83831 0.413855 9.39698 0.413855 9.74156 0.758435C10.0861 1.10302 10.0861 1.66169 9.74156 2.00627L4.44745 7.30039C4.10287 7.64497 3.54419 7.64497 3.19961 7.30039L0.258435 4.35921C-0.0861451 4.01463 -0.0861451 3.45596 0.258435 3.11138C0.603015 2.7668 1.16169 2.7668 1.50627 3.11138L3.82353 5.42863L8.49373 0.758435Z' fill='%2349C2E8' /%3E%3C/svg%3E");
+}
+
+.modal-btn:hover {
+  background: rgba(73, 194, 232, 0.11);
+}
+
+.modal-btn:hover::after {
+  content: "";
+  position: absolute;
+  right: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 7px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.49373 0.758435C8.83831 0.413855 9.39698 0.413855 9.74156 0.758435C10.0861 1.10302 10.0861 1.66169 9.74156 2.00627L4.44745 7.30039C4.10287 7.64497 3.54419 7.64497 3.19961 7.30039L0.258435 4.35921C-0.0861451 4.01463 -0.0861451 3.45596 0.258435 3.11138C0.603015 2.7668 1.16169 2.7668 1.50627 3.11138L3.82353 5.42863L8.49373 0.758435Z' fill='%2349C2E8' /%3E%3C/svg%3E");
 }

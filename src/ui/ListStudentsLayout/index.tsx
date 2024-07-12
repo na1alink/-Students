@@ -15,20 +15,31 @@ const ListStudentsLayout: React.FC = () => {
     handleSearch,
     handleSort,
     handleDelete,
-  } = useStudents(); // Use the custom hook
+  } = useStudents();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sortButtonText, setSortButtonText] = useState("Имя А-Я");
+  const [currentSort, setCurrentSort] = useState("name-asc");
+
+  const handleSortAndClose = (criteria: string, buttonText: string) => {
+    handleSort(criteria);
+    setSortButtonText(buttonText);
+    setCurrentSort(criteria);
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="studentsList">
       <ListStudentsControl
         searchTerm={searchTerm}
         onSearch={handleSearch}
+        sortButtonText={sortButtonText}
         onSortButtonClick={() => setIsModalOpen(true)}
       />
       <SortModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onSort={handleSort}
+        currentSort={currentSort}
+        onSort={handleSortAndClose}
       />
       <ListStudentsHeader />
       {!isLoaded ? (

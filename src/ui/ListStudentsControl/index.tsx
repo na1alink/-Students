@@ -5,12 +5,14 @@ interface StudentsControlProps {
   searchTerm: string;
   onSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSortButtonClick: () => void;
+  sortButtonText: string;
 }
 
 const ListStudentsControl: React.FC<StudentsControlProps> = ({
   searchTerm,
   onSearch,
   onSortButtonClick,
+  sortButtonText,
 }) => {
   return (
     <div className="studentsList__blockControl">
@@ -26,7 +28,7 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
         onClick={onSortButtonClick}
         className="studentsList__blockControl-sort"
       >
-        Имя А-Я
+        {sortButtonText}
       </button>
     </div>
   );
