@@ -22,3 +22,20 @@
 .header__title a {
   color: #49c2e8;
 }
+
+@media (max-width: 992px) {
+  .header__container {
+    gap: 20px;
+  }
+
+  .header__logo-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header__title span {
+    display: none;
+  }
+}

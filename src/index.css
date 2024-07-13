@@ -175,3 +175,13 @@ body {
   font-weight: 700;
   line-height: 50.32px;
 }
+
+@media (max-width: 576px) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .main-title {
+    font-size: 30px;
+  }
+}

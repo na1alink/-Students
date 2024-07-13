@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Student from "../Student";
 import ListStudentsControl from "../ListStudentsControl";
 import SortModal from "../SortModal";
 import { ListStudentsHeader } from "../ListStudentsHeader";
 
 import "./styles.css";
-import useStudents from "../../hooks/useStudentsList";
+import useStudents from "../../hooks/useStudents";
+import { useDeviceSize } from "../../hooks/useDeviceSize";
 
 const ListStudentsLayout: React.FC = () => {
   const {
@@ -19,6 +20,7 @@ const ListStudentsLayout: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortButtonText, setSortButtonText] = useState("Имя А-Я");
   const [currentSort, setCurrentSort] = useState("name-asc");
+  const { isDesktop } = useDeviceSize();
 
   const handleSortAndClose = (criteria: string, buttonText: string) => {
     handleSort(criteria);
@@ -41,7 +43,9 @@ const ListStudentsLayout: React.FC = () => {
         currentSort={currentSort}
         onSort={handleSortAndClose}
       />
-      <ListStudentsHeader />
+
+      {isDesktop && <ListStudentsHeader />}
+
       {!isLoaded ? (
         <p>Загрузка...</p>
       ) : (

@@ -10,13 +10,16 @@ export const Header = () => {
         </a>
 
         <p className="header__title">
-          STUDENTS by{" "}
-          <a
-            target="__blank"
-            href="https://github.com/na1alink?tab=repositories"
-          >
-            na1alink
-          </a>
+          STUDENTS{" "}
+          <span>
+            by{" "}
+            <a
+              target="__blank"
+              href="https://github.com/na1alink?tab=repositories"
+            >
+              na1alink
+            </a>
+          </span>
         </p>
       </div>
     </header>
