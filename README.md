@@ -1,32 +1,55 @@
 # Тестовое задание <a href="https://doubletapp.ai/">DoubpleTapp</a>
 
+## Single Page Application для работы со списком студентов: добавлением, удалением, получением. 
+## Проект написан на React + Vite + TypeScript
 
 
-  ## Single Page Application для работы со списком студентов: добавлением, удалением, получением. 
-  ## Проект написан на React + Vite + TypeScript
+### Развёртывание
 
+Устанавливаем Heroku по [инструкции](https://devcenter.heroku.com/articles/heroku-cli), затем авторизуемся и создаём приложение:
+```sh
+npm run heroku-init
+```
 
+Собираем React-приложение в директорию `dist`:
+```sh
+npm run build
+```
 
+Далее размещаем приложение:
+```sh
+npm run heroku
+```
 
-### Установка:
-- Клонирование репозитория
-   ```git clone вставить_ссылку_сюда
-  
-- Переход в директорию Students
-```cd Students
+В дальнейшем всё это можно выполнить одной командой:
+```sh
+npm run deploy
+```
 
-- Установка зависимостей
+### Доступные команды
 
-```npm install
-
-- Соборка React-приложения в директорию dist
-
-```npm run build
-
-- Запуск скрипта 
-
-```npm run dev
-
----
-
-
+| Команда | Действие |
+| ------------- | ------------- |
+| build | Сборка приложения |
+| build:client | Сборка React-файлов в бандл |
+| build:server | Копирование сервера в dist/ |
+| dev:build:client | Сборка React-файлов в бандл в режиме разработки |
+| dev:build:server | Копирование сервера в dist/ |
+| dev | Запуск приложения в режиме разработки |
+| lint | Запуск всех проверок |
+| lint:css | Проверка css файлов на codestyle |
+| lint:js | Проверка JS файлов на codestyle |
+| lint:jsx | Проверка JSX файлов на codestyle |
+| deps:all | Установка всех зависимостей |
+| deps:production | Установка зависимостей, ноебходимых только для работы приложения |
+| docker:build | Локальная сборка Docker-образа |
+| docker:run | Локальный запуск контейнера с приложением |
+| heroku-init | Создание приложения в Heroku |
+| heroku:login | Авторизация в Heroku |
+| heroku:push | Сборка и отправка образа в Heroku |
+| heroku:release | Запуск контейнера с приложением в Heroku |
+| heroku:open | Открытие браузера с приложением в Heroku |
+| heroku:logs | Просмотр логов приложения в Heroku |
+| heroku | Деплой приложения в Heroku |
+| start | Старт приложения |
+| deploy | Сборка приложения, деплой приложения в Heroku |
