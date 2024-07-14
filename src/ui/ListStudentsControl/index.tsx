@@ -1,5 +1,5 @@
 import React from "react";
-import sort from "../../assets/sort.svg";
+import SortIcon from "@/assets/icon/sort.svg";
 import "./styles.css";
 
 interface StudentsControlProps {
@@ -30,8 +30,7 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
         className="studentsList__blockControl-sort"
       >
         <span> {sortButtonText}</span>
-
-        <img src={sort} alt="sort" />
+        <SortIcon />
       </button>
     </div>
   );

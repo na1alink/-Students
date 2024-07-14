@@ -1,4 +1,4 @@
-import LogoIcon from "../../assets/logo.svg?react";
+import LogoIcon from "@/assets/icon/logo.svg";
 import "./styles.css";
 
 export const Header = () => {
@@ -6,7 +6,7 @@ export const Header = () => {
     <header className="header">
       <div className="container header__container">
         <a href="./" className="header__logo">
-          <LogoIcon width={50} height={50} className="header__logo-icon" />
+          <LogoIcon className="header__logo-icon" />
         </a>
 
         <p className="header__title">
