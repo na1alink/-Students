@@ -36,16 +36,10 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.studentsList__blockControl-search::before {
-  content: "";
-  display: inline-block;
+.studentsList__blockControl-search__svg {
   position: absolute;
   left: 20px;
   top: 15px;
-  background-image: url("../../assets/search.svg");
-  background-size: cover;
-  width: 19px;
-  height: 19px;
 }
 
 .studentsList__blockControl-sort {
@@ -87,7 +81,7 @@
     padding-left: 20px;
   }
 
-  .studentsList__blockControl-search::before {
+  .studentsList__blockControl-search__svg {
     left: 15px;
   }
 

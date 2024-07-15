@@ -15,6 +15,8 @@ const sortOptions = [
   { criteria: "age-asc", text: "Сначала старше" },
   { criteria: "rating-desc", text: "Высокий рейтинг" },
   { criteria: "rating-asc", text: "Низкий рейтинг" },
+  { criteria: "color-asc", text: "Цвет А-Я" },
+  { criteria: "color-desc", text: "Цвет Я-А" },
 ];
 
 const SortModal: React.FC<SortModalProps> = ({

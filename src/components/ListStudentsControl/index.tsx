@@ -1,6 +1,8 @@
 import React from "react";
-import SortIcon from "@/assets/icon/sort.svg";
+
 import "./styles.css";
+import SortIcon from "../images/icon/SortIcon";
+import SearchIcon from "../images/icon/SearchIcon";
 
 interface StudentsControlProps {
   searchTerm: string;
@@ -24,6 +26,8 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
           value={searchTerm}
           onChange={onSearch}
         />
+
+        <SearchIcon className="studentsList__blockControl-search__svg" />
       </div>
       <button
         onClick={onSortButtonClick}

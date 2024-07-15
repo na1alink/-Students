@@ -1,4 +1,5 @@
-import LogoIcon from "@/assets/icon/logo.svg";
+// import LogoIcon from "../../assets/icon/logo.svg";
+import LogoIcon from "../images/icon/LogoIcon";
 import "./styles.css";
 
 export const Header = () => {

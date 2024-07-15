@@ -1,5 +1,5 @@
 import "./index.css";
-import { BaseLayout } from "./ui/BaseLayout/BaseLayout";
+import { BaseLayout } from "./components/BaseLayout/BaseLayout";
 
 function App() {
   return (
