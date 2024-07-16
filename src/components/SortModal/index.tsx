@@ -6,23 +6,14 @@ interface SortModalProps {
   onClose: () => void;
   onSort: (criteria: string, buttonText: string) => void;
   currentSort: string;
+  sortOptions: { criteria: string; text: string }[];
 }
-
-const sortOptions = [
-  { criteria: "name-asc", text: "Имя А-Я" },
-  { criteria: "name-desc", text: "Имя Я-А" },
-  { criteria: "age-desc", text: "Сначала моложе" },
-  { criteria: "age-asc", text: "Сначала старше" },
-  { criteria: "rating-desc", text: "Высокий рейтинг" },
-  { criteria: "rating-asc", text: "Низкий рейтинг" },
-  { criteria: "color-asc", text: "Цвет А-Я" },
-  { criteria: "color-desc", text: "Цвет Я-А" },
-];
 
 const SortModal: React.FC<SortModalProps> = ({
   isOpen,
   onSort,
   currentSort,
+  sortOptions,
 }) => {
   if (!isOpen) return null;
 

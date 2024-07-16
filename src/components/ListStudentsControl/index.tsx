@@ -4,6 +4,17 @@ import SortIcon from "../images/icon/SortIcon";
 import SearchIcon from "../images/icon/SearchIcon";
 import SortModal from "../SortModal";
 
+const sortOptions = [
+  { criteria: "name-asc", text: "Имя A-Z" },
+  { criteria: "name-desc", text: "Имя Z-A" },
+  { criteria: "age-desc", text: "Сначала моложе" },
+  { criteria: "age-asc", text: "Сначала старше" },
+  { criteria: "rating-desc", text: "Высокий рейтинг" },
+  { criteria: "rating-asc", text: "Низкий рейтинг" },
+  { criteria: "color-asc", text: "Цвет A-Z" },
+  { criteria: "color-desc", text: "Цвет Z-A" },
+];
+
 interface StudentsControlProps {
   searchTerm: string;
   onSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -22,6 +33,11 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const sortButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const initialSortOption = sortOptions[0];
+    onSortButtonClick(initialSortOption.criteria, initialSortOption.text);
+  }, [onSortButtonClick]);
 
   const handleSortAndClose = (criteria: string, buttonText: string) => {
     onSortButtonClick(criteria, buttonText);
@@ -82,6 +98,7 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
               onClose={() => setIsModalOpen(false)}
               currentSort={currentSort}
               onSort={handleSortAndClose}
+              sortOptions={sortOptions}
             />
           </div>
         )}

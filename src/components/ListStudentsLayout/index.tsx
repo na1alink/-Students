@@ -18,7 +18,7 @@ const ListStudentsLayout: React.FC = () => {
     handleDelete,
   } = useStudents();
 
-  const [sortButtonText, setSortButtonText] = useState("Имя А-Я");
+  const [sortButtonText, setSortButtonText] = useState("Имя A-Z");
   const [currentSort, setCurrentSort] = useState("name-asc");
   const { isDesktop } = useDeviceSize();
 
