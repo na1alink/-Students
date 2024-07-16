@@ -16,17 +16,38 @@ export interface StudentData {
 const useFetchStudents = () => {
   const [students, setStudents] = useState<StudentData[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     fetch("https://front-assignment-api.2tapp.cc/api/persons")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
-        setStudents(data.students);
-        setIsLoaded(true);
+        if (isMounted) {
+          setStudents(data.students);
+          setIsLoaded(true);
+          setError(null);
+        }
+      })
+      .catch((error) => {
+        if (isMounted) {
+          setError(error.message);
+          setIsLoaded(true);
+        }
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  return { students, setStudents, isLoaded };
+  return { students, setStudents, isLoaded, error };
 };
 
 export default useFetchStudents;

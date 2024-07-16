@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Student from "../Student";
 import ListStudentsControl from "../ListStudentsControl";
 
@@ -27,6 +27,9 @@ const ListStudentsLayout: React.FC = () => {
     setSortButtonText(buttonText);
     setCurrentSort(criteria);
   };
+  useEffect(() => {
+    handleSort("name-asc");
+  }, []);
 
   return (
     <div className="studentsList">
@@ -44,8 +47,10 @@ const ListStudentsLayout: React.FC = () => {
         <p>Загрузка...</p>
       ) : (
         <div className="studentsList__content">
-          {students.length === 0 ? (
-            <p>Нет совпадений</p>
+          {students.length === 0 && searchTerm === "" ? (
+            <p className="studentsList__matches">Список пуст</p> // Показывать "Список пуст" при удалении
+          ) : students.length === 0 ? (
+            <p className="studentsList__matches">Нет совпадений</p>
           ) : (
             students.map((student) => (
               <Student

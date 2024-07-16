@@ -35,36 +35,30 @@ const ListStudentsControl: React.FC<StudentsControlProps> = ({
   const sortButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const initialSortOption = sortOptions[0];
-    onSortButtonClick(initialSortOption.criteria, initialSortOption.text);
-  }, [onSortButtonClick]);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setIsModalOpen(false);
+      }
+    };
 
-  const handleSortAndClose = (criteria: string, buttonText: string) => {
-    onSortButtonClick(criteria, buttonText);
-    setIsModalOpen(false);
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      modalRef.current &&
-      !modalRef.current.contains(event.target as Node) &&
-      sortButtonRef.current &&
-      !sortButtonRef.current.contains(event.target as Node)
-    ) {
-      setIsModalOpen(false);
-    }
-  };
-
-  useEffect(() => {
     if (isModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isModalOpen]);
+
+  const handleSortAndClose = (criteria: string, buttonText: string) => {
+    onSortButtonClick(criteria, buttonText);
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="studentsList__blockControl">

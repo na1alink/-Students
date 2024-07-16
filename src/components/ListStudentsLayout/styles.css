@@ -29,4 +29,11 @@
     display: grid;
     grid-template-columns: auto;
   }
+
+  .studentsList__matches {
+    box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+
+    border-radius: 6px;
+    padding: 14px;
+  }
 }
