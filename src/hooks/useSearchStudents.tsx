@@ -8,8 +8,11 @@ const useSearchStudents = (students: StudentData[]) => {
     setSearchTerm(event.target.value);
   };
 
+  const normalizeString = (str: string) =>
+    str.replace(/\s+/g, " ").trim().toLowerCase();
+
   const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase())
+    normalizeString(student.name).includes(normalizeString(searchTerm))
   );
 
   return { searchTerm, handleSearch, filteredStudents };

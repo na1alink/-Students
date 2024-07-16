@@ -21,33 +21,24 @@ const sortOptions = [
 
 const SortModal: React.FC<SortModalProps> = ({
   isOpen,
-  onClose,
   onSort,
   currentSort,
 }) => {
-  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
-    if ((event.target as Element).classList.contains("modal")) {
-      onClose();
-    }
-  };
-
   if (!isOpen) return null;
 
   return (
-    <div className="modal" onClick={handleClickOutside}>
-      <div className="modal-content">
-        {sortOptions.map((option) => (
-          <button
-            key={option.criteria}
-            onClick={() => onSort(option.criteria, option.text)}
-            className={`modal-btn ${
-              currentSort === option.criteria ? "selected" : ""
-            }`}
-          >
-            {option.text}
-          </button>
-        ))}
-      </div>
+    <div className="modal">
+      {sortOptions.map((option) => (
+        <button
+          key={option.criteria}
+          onClick={() => onSort(option.criteria, option.text)}
+          className={`modal-btn ${
+            currentSort === option.criteria ? "selected" : ""
+          }`}
+        >
+          {option.text}
+        </button>
+      ))}
     </div>
   );
 };

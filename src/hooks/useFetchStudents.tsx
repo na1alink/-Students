@@ -21,7 +21,12 @@ const useFetchStudents = () => {
     fetch("https://front-assignment-api.2tapp.cc/api/persons")
       .then((response) => response.json())
       .then((data) => {
-        setStudents(data.students);
+        const sortedStudents = data.students.sort(
+          (a: StudentData, b: StudentData) => {
+            return a.name.localeCompare(b.name);
+          }
+        );
+        setStudents(sortedStudents);
         setIsLoaded(true);
       });
   }, []);

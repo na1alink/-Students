@@ -37,10 +37,10 @@ const useSortStudents = (students: StudentData[]) => {
           sorted.sort((a, b) => b.rating - a.rating);
           break;
         case "color-asc":
-          sorted.sort((a, b) => a.name.localeCompare(b.color));
+          sorted.sort((a, b) => a.color.localeCompare(b.color));
           break;
         case "color-desc":
-          sorted.sort((a, b) => b.name.localeCompare(a.color));
+          sorted.sort((a, b) => b.color.localeCompare(a.color));
           break;
       }
     }
