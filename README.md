@@ -1,6 +1,7 @@
 # Тестовое задание <a href="https://doubletapp.ai/">DoubpleTapp</a>
 
 ## Single Page Application для работы со списком студентов: добавлением, удалением, получением. 
+
 ## Используемые технологии
 - React: Библиотека для создания пользовательских интерфейсов.
 - Vite: Быстрый и минималистичный инструмент для сборки и разработки.
@@ -28,8 +29,6 @@ npm run build
 ```sh
 npm run deploy
 ```
-### Посмотреть проект на GitHub Pages по <a href="https://na1alink.github.io/students/"><strong>ссылке</strong></a>
-
 
 ### Доступные команды
 
@@ -41,3 +40,6 @@ npm run deploy
 | preview | Запуск Vite в режиме предпросмотра |
 | predeploy | Скрипт предварительного выполнения перед командой deploy. Автоматически запускает сборку проекта перед деплоем |
 | deploy |  Деплой собранного проекта в ветку gh-pages |
+
+
+### Посмотреть проект на GitHub Pages по <a href="https://na1alink.github.io/students/"><strong>ссылке</strong></a>
