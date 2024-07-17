@@ -28,7 +28,7 @@ npm run build
 ```sh
 npm run deploy
 ```
-
+### Посмотреть проект на GitHub Pages по <a href="https://na1alink.github.io/students/"><strong>ссылке</strong></a>
 
 
 ### Доступные команды
